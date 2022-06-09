@@ -2,7 +2,7 @@
 
 namespace Robot_project.Model
 {
-    // to use in memory 
+
     public class LocationContext : DbContext
     {
         public LocationContext(DbContextOptions<LocationContext> options)

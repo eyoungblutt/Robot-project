@@ -4,11 +4,6 @@ using System.Text.Json;
 namespace Robot_project.Model
 {
 
-
-    //public class Rootobject
-    //{
-    //    public locationOfWater[] Property1 { get; set; }
-    //}
     
     public class LocationOfWater
     {
