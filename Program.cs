@@ -1,4 +1,6 @@
 using Robot_project.Services;
+using Microsoft.EntityFrameworkCore;
+using Robot_project.Model;
 
 WebApplicationBuilder builder = WebApplication.CreateBuilder(args);
 
@@ -10,7 +12,7 @@ builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
 builder.Services.AddSingleton<HttpClient>();
 builder.Services.AddSingleton<LocationService>();
-
+builder.Services.AddDbContext<LocationContext>(options => options.UseInMemoryDatabase("LocalDB"));
 
 WebApplication app = builder.Build();
 

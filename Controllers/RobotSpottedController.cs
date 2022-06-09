@@ -16,6 +16,7 @@ namespace Robot_project.Controllers
 
         private readonly ILogger<RobotSpottedController> _logger;
         private readonly LocationService _service;
+        private LocationContext _context;
 
         private List<Location> _locations = new List<Location>()
         {
@@ -28,17 +29,18 @@ namespace Robot_project.Controllers
             }
 
         };
-        public RobotSpottedController(LocationService service, ILogger<RobotSpottedController> logger)
+        public RobotSpottedController(LocationContext context, LocationService service, ILogger<RobotSpottedController> logger)
         {
             _logger = logger;
             _service = service;
+            _context = context;
             _logger.LogCritical(new EventId(), "Created Controller" );
         }
 
         [HttpGet(Name = "RobotSpotted")]
-        public string Get()
+        public IEnumerable<Location> Get()
         {
-            return "Parramatta River";
+            return _context.Locations;
         }
         [HttpPost(Name = "RobotSpotted")]
         public async Task<string> Post(Location location)
