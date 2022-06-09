@@ -45,11 +45,13 @@ namespace Robot_project.Controllers
         [HttpPost(Name = "RobotSpotted")]
         public async Task<string> Post(Location location)
         {
-            _logger.Log(LogLevel.Information, new EventId(), null, "Finding the nearest water to" + location.Name,null);
+            _logger.Log(LogLevel.Information, new EventId(), null, "Finding the nearest water to" + location.Suburb,null);
             var x = await _service.GetNearestRiverFromLocation(location);
-           locationOfWater[] xy = JsonSerializer.Deserialize<locationOfWater[]>(x);
+           LocationOfWater[] xy = JsonSerializer.Deserialize<LocationOfWater[]>(x);
 
-            return $"The nearest body of water to {location.Name} is {xy[0].display_name}"; // possibly deserialize in x??
+           
+                return $"The nearest body of water to {location.Suburb}, {location.Country} is {xy[0].display_name}";
+            // possibly deserialize in x??
             //could use search - and they could send name of city, street, street number etc? Then use that to find the nearest water source.
             // water near me - search this and return the first 
 

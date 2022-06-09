@@ -24,7 +24,7 @@ namespace Robot_project.Services
         {
 
             //client.DefaultRequestHeaders.Add("Name", "My App");
-            HttpResponseMessage x = await _httpClient.GetAsync($"https://nominatim.openstreetmap.org/?addressdetails=1&q=water+near+{location.Name}+{location.postcode}&format=json&limit=1");
+            HttpResponseMessage x = await _httpClient.GetAsync($"https://nominatim.openstreetmap.org/?addressdetails=1&q=water+near+{location.Suburb}+{location.State}+{location.Country}&format=json&limit=1");
             
             
             //  HttpResponseMessage x = await _httpClient.GetAsync($"https://nominatim.openstreetmap.org/reverse?format=json&lat=location.Latitude&lon=location.Longitude");
