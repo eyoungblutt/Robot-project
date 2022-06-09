@@ -31,6 +31,7 @@ namespace Robot_project.Services
             //need to somehow add endpoints here that get us body of water based on a location.
             return await x.Content.ReadAsStringAsync();
 
+            //copy all data you want to get from browser and paste into a class - a new class 
         }
     }
 
